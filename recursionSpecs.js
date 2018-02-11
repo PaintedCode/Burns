@@ -136,12 +136,21 @@ describe("return an array from an object using map", function() {
   });
 })
 
+describe("reverse using recursion", function() {
+
+  it("reverse", function() {
+    var reverseTest = reverse('hello');
+    expect(reverseTest).toEqual('olleh');
+    var reverseTest = reverse('kayak');
+    expect(reverseTest).toEqual('kayak');
+  });
+})
 describe("palindrome using recursion", function() {
 
   it("palindrome", function() {
     var palindromeTest = palindrome('hello');
-    expect(palindromeTest).toEqual('olleh');
+    expect(palindromeTest).toEqual(false);
     var palindromeTest = palindrome('kayak');
-    expect(palindromeTest).toEqual('kayak');
+    expect(palindromeTest).toEqual(true);
   });
 })

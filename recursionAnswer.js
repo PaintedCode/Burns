@@ -275,10 +275,15 @@ function sum3X (a,b) {
 
 var x = sum3X(2,3)
 
+function reverse (str) {
+  if (str.length < 2 ) {return str}
+  else { return  reverse(str.slice(1)) + str[0]}
+}
 
 function palindrome (str) {
 
-if (str.length < 2 ) {return str}
-else { return  palindrome(str.slice(1)) + str[0]}
-
+  if (str === reverse(str) ) {return true};
+  return false
 }
+
+
