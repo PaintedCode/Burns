@@ -6,9 +6,9 @@
 function  factorial (int) {
   
   if (int < 2) {
-    return 1   
+    return 1;   
   } else {
-    return int * factorial (int-1)
+    return int * factorial (int-1);
   }
 }
 
@@ -42,7 +42,7 @@ var gcd = function(a, b) {
       list.push(end_num - 1);                   // executes after base case returns true
       return list;                              // loops to line above until recursion completes
     }
-  };
+  }
   
 
 // 4. Write a JavaScript program to compute the sum of an array of integers. 
@@ -276,15 +276,15 @@ function sum3X (a,b) {
   return result
 }
 
-var x = sum3X(2,3)
+var x = sum3X (2,3);
 
 
-function xreverse (str) {
+function reverse (str) {
   if (str.length < 2 ) {return str}
   else { return  reverse(str.slice(1)) + str[0]}
 }
 
-function xpalindrome (str) {
+function palindrome (str) {
 
   if (str === reverse(str) ) {return true};
   return false
