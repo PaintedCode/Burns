@@ -145,12 +145,14 @@ return arr.reduce(function (a,b){return a.concat(b)},[])
  
 }
 
-function reverseStr (str) {
+function reverseStr (str) {  // with recursion
 
   if (str.length <= 1) {return str}
   else {return reverseStr(str.substr(1)) + str.charAt(0);}
 
 }
+
+
  
 
 function digitCounter (number,int) {
@@ -223,9 +225,10 @@ Admin.prototype.users = [];
 
 Admin.prototype.displayAllUsers = function () {
   this.users.forEach( function (user){
-    console.log (user.name)
+    //console.log (user.name)
   });
 } 
+
 function User(name) {
 
   this.name = name ;
@@ -276,14 +279,187 @@ function sum3X (a,b) {
 var x = sum3X(2,3)
 
 
-function reverse (str) {
+function xreverse (str) {
   if (str.length < 2 ) {return str}
   else { return  reverse(str.slice(1)) + str[0]}
 }
 
-function palindrome (str) {
+function xpalindrome (str) {
 
   if (str === reverse(str) ) {return true};
   return false
 }
 
+
+// function decoratedFunc (run,a,b,func){
+//   return  function (a,b,func) {
+//       var result = 0
+//       for ( i=0; i < run; i++){
+//           result += func(a,b)
+//       }
+//   }
+//   return result;
+// }
+  
+// function callDecoratedFunc (run,a,b,func){
+//   return decoratedFunc (run,a,b,func)()
+// }
+
+function closure (int) {
+  var result = [];
+
+   inside =  function (i) {
+        return function() {
+            //console.log(i);
+            return i;
+        };
+    };
+
+  for (var i=0; i < int; i++) {
+    result.push(inside(i))
+  }
+
+  return result
+}
+
+
+
+
+function reverseMe (str) {
+
+if (str.length === 0) return ''
+return reverseMe(str.slice(1)) + str[0] 
+
+
+}
+
+
+function pal (str) {
+  var rev = function (str) {
+    if (str.length === 0) return ''
+    return rev(str.slice(1)) + str[0] 
+  }
+  return (str === rev(str) ) ?true:false;
+}
+
+function consoleLog (str) {
+   // console.log(str);
+    //return str;
+}
+
+function run3X (func,arg) {
+  for (i=0; i<3; i++){func(arg)}
+}
+
+
+//
+//  Constructor Functions
+//
+
+function ParentConstr (name) {
+ 
+  this.name = name;
+  this.city ='';
+  this.state = '';
+  ChildConstr.prototype.childData.push(this)
+}
+
+ParentConstr.prototype.getUserInfo = function (name) {
+  console.log (this.name)
+}
+
+
+function ChildConstr(name,child) {
+    ParentConstr.call (this, name);
+    this.child = child;
+}
+ChildConstr.prototype = Object.create (ParentConstr.prototype) 
+ChildConstr.prototype.constructor= ChildConstr
+ChildConstr.prototype.childData=[];  //  create an array 
+ChildConstr.prototype.getChildInfo = function (name) {
+	return this.childData.find(function (user) {
+		return user.name === name;
+	});
+}
+
+jbParent = new ParentConstr ('jbParent')
+jbChild = new ChildConstr ('jbChild','childData')
+console.log(jbParent)
+
+
+//
+// Factory Functions
+//
+
+function myFactory(data) {
+
+  return {
+    fact1:'',
+    fact2:'',
+    storeFact1:  function(data) {this.fact1 = data},
+    storeFact2:  function(data) {this.fact2 = data},
+    returnFact1: function() {return this.fact1},
+    returnFact2: function() {return this.fact2},
+    factFunc:    function() {return 'factFunc: ' + this.fact1 + " -  " + this.fact2},
+  }
+}
+
+myFact = myFactory();
+myFact.storeFact1('myFact1 is 1');
+myFact.storeFact2('myFact2 is 2');
+x=myFact.returnFact1;
+y=myFact.returnFact2;
+z=myFact.factFunc;
+console.log(x,y,z)
+console.log(x,y,z)
+
+
+
+//
+// Closure
+//
+
+
+function myClosure (x) {
+
+    result=[]
+    function func (x){
+      return function (){
+        console.log(x)
+        return x;
+      };
+    }
+    
+    for (i=0; i<x; i++) {
+      result.push(func(i));
+    }
+
+    return result
+}
+
+
+
+function createFunctions (int) {
+  var result =[];
+ 
+  func =  function (i) {
+      return function() {
+          return i;
+      };
+  };
+
+  for (var i=0; i < int; i++ ) {
+      result.push(func(i));
+  }
+  return result;
+}
+
+
+function rev (str) {
+
+  if (str.length ===0) return ''
+  return rev(str.slice(1)) + str[0]
+}
+
+
+console.log('end of code');

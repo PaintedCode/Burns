@@ -145,12 +145,71 @@ describe("reverse using recursion", function() {
     expect(reverseTest).toEqual('kayak');
   });
 })
-describe("palindrome using recursion", function() {
+describe("palindrome using reverse", function() {
 
   it("palindrome", function() {
     var palindromeTest = palindrome('hello');
     expect(palindromeTest).toEqual(false);
     var palindromeTest = palindrome('kayak');
     expect(palindromeTest).toEqual(true);
+  });
+})
+
+// describe("decoratedFunc", function() {
+
+//   it("callDecoratedFunc", function() {
+//     var test = callDecoratedFunc(3,4,5,function(a,b) {return a+b});
+//     expect(test).toEqual(27);
+  
+//   });
+// })
+
+// describe("closure", function() {
+
+//   it("closure", function() {
+//     var test = closure(4);
+//     expect(test).toEqual(2);
+  
+//   });
+// })
+
+describe("reverse using recursion", function() {
+
+  it("reverseMe", function() {
+    var reverseTest = reverseMe('hello');
+    expect(reverseTest).toEqual('olleh');
+    var reverseTest = reverseMe('kayak');
+    expect(reverseTest).toEqual('kayak');
+  });
+})
+
+
+describe("pal using reverse", function() {
+
+  it("pal", function() {
+    var palindromeTest = pal('hello');
+    expect(palindromeTest).toEqual(false);
+    var palindromeTest = pal('kayak');
+    expect(palindromeTest).toEqual(true);
+  });
+})
+
+// describe("run3X", function() {
+//   it("pal", function() {
+//     var test = run3X(consoleLog,'hello');
+//     expect(test).toEqual(false);
+//     var test = run3X('kayak');
+//     expect(test).toEqual(true);
+//   })
+// })
+
+
+describe("reverse using recursion", function() {
+
+  it("rev", function() {
+    var reverseTest = rev('hello');
+    expect(reverseTest).toEqual('olleh');
+    var reverseTest = rev('kayak');
+    expect(reverseTest).toEqual('kayak');
   });
 })
