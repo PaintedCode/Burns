@@ -462,4 +462,44 @@ function rev (str) {
 }
 
 
+
+function arrayFrom (){
+  args = Array.from(arguments)
+  for (a in args){
+//   console.log(args[a])
+  }
+}
+
+arrayFrom(1,2,3,4)
+
+
+
+
+var mixedArray = [1,2,3,4,[5,6],7]
+var mixedArray = [1,[2,3],4,[[5,6],7]]
+
+function flattenArray (arr) {
+  
+  var flatArray =[]  // use closure
+
+  
+  var innerFunc = function (arr) {
+    if (arr.length === 0) {return []}
+      if (Array.isArray(arr[0])) {
+          //newArr = newArr.concat(flatten(arr[0]));
+          flatArray.push(arr[0])
+        
+      } else {
+        flatArray.push(arr[0])
+      }
+      return innerFunc(arr.slice(1))
+  }
+
+
+  innerFunc(arr);
+  return flatArray
+}
+
+flatArray = flattenArray(mixedArray)
+console.log(flatArray)
 console.log('end of code');
